@@ -23,8 +23,8 @@ Gem::Specification.new do |s|
     Dir['lib/**/*'] +
     Dir['rake/**/*'] +
     Dir['test/**/*'] +
+    Dir['*.gemspec'] +
     %w[
-      swissmatch.gemspec
       Rakefile
       README.markdown
     ]
