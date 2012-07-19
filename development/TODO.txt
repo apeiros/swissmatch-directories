@@ -1,0 +1,2 @@
+* SwissMatch::Address#family_name - Resolve the @todo (is "last_name (-maiden_name)"
+  the proper format?)
