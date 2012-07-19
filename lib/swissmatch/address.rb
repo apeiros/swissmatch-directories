@@ -11,10 +11,13 @@ module SwissMatch
       [street_name,street_number].compact.join(" ")
     end
 
-    # Full family name including the maiden name
+    # @return [String]
+    #   The full family name, including the maiden name.
+    # @note
+    #   I (stefan.rusterholz@gmail.com) am not sure whether "last_name (-maiden_name)"
+    #   is the proper form. The output might be changed in a future version
     def family_name
-      name = last_name
-      name += " (-#{maiden_name})" if maiden_name.present?
+      maiden_name ? "#{last_name} (-#{maiden_name})" : last_name
     end
   end
 end
