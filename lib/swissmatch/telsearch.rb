@@ -25,7 +25,7 @@ module SwissMatch
 
     def search_ch_mapping(params)
       {
-        :was => params.values_at(:first_name, :last_name, :phone).compact.join(' '),
+        :was => params.values_at(:first_name, :last_name, :maiden_name, :phone).compact.join(' '),
         :wo  => params.values_at(:street, :street_name, :street_number, :zip_code, :city).compact.join(' '),
       }.reject { |k,v| v.empty? }
     end
@@ -40,6 +40,7 @@ module SwissMatch
           nil,
           extract(entry, 't|firstname'),
           extract(entry, 't|name'),
+          extract(entry, 't|maidenname'),
           extract(entry, 't|street'),
           extract(entry, 't|streetno'),
           extract(entry, 't|zip', &:to_i),
