@@ -10,5 +10,11 @@ module SwissMatch
     def street
       [street_name,street_number].compact.join(" ")
     end
+
+    # Full family name including the maiden name
+    def family_name
+      name = last_name
+      name += " (-#{maiden_name})" if maiden_name.present?
+    end
   end
 end
