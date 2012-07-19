@@ -30,14 +30,24 @@ module SwissMatch
       }.reject { |k,v| v.empty? }
     end
 
-    def addresses(params)
+    def addresses(params, options = {})
       # tel.search.ch parameters
       search_params = {'key' => @key}
 
+      # Handle pagination parameters
+      per_page = options[:per_page] || 10
+      search_params['maxnum'] = per_page
+
+      page = options[:page] || 1
+      pos = (page - 1) * per_page + 1
+      search_params['pos'] = pos
+
+      # Request
       uri       = @uri.dup
       uri.query = URI.encode_www_form(search_ch_mapping(params).merge(search_params))
       feed      = Nokogiri.XML(open(uri, &:read))
 
+      # Parse result
       feed.css('entry').map { |entry|
         Address.new(
           nil,
