@@ -31,8 +31,11 @@ module SwissMatch
     end
 
     def addresses(params)
+      # tel.search.ch parameters
+      search_params = {'key' => @key}
+
       uri       = @uri.dup
-      uri.query = URI.encode_www_form(search_ch_mapping(params).merge('key' => @key))
+      uri.query = URI.encode_www_form(search_ch_mapping(params).merge(search_params))
       feed      = Nokogiri.XML(open(uri, &:read))
 
       feed.css('entry').map { |entry|
