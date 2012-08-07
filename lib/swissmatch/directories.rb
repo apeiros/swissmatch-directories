@@ -2,9 +2,10 @@
 
 
 
+require 'swissmatch/address'
 require 'swissmatch/directoryservice'
 require 'swissmatch/telsearch'
-require 'swissmatch/address'
+require 'swissmatch/directories/version'
 
 
 
