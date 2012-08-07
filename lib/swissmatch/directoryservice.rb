@@ -2,7 +2,7 @@
 
 
 
-warn "WARNING: Directory Services API is not yet stable (from swissmatch/directoryservice.rb)"
+warn "WARNING: Directory Services API is not yet stable (from #{__FILE__})"
 
 
 
