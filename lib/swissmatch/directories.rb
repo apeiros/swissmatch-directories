@@ -17,9 +17,11 @@ require 'swissmatch/directories/version'
 #   returned by SwissMatch are also in utf-8.
 #
 module SwissMatch
+
   @directory_service  = nil
 
   class <<self
+
     # @return [SwissMatch::DirectoryService, nil]
     # The directory service used to search for addresses
     attr_accessor :directory_service
